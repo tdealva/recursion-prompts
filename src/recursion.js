@@ -34,7 +34,32 @@ var factorial = function(n) {
 // sum([1,2,3,4,5,6]); // 21
 // Input - Array of Integers
 // Output - Sum of all Integers
+
 var sum = function(array) {
+  // we don't know how many elements in input array? USE RECURSION
+  // if array is empty, return 0
+  if (array.length === 0) {
+    return 0;
+  }
+  // Base Case -- primitive number (smallest piece of data)
+  if (typeof array === 'number') {
+    return array;
+  }
+
+  var result = 0;
+
+  // if array has more than one number
+  if (array.length >= 1) {
+    // define result variable
+    // iterate over each element in array
+    array.forEach(function(item) {
+      // invoke sum and concat result to sum
+      result += sum(item);
+    });
+  }
+  // return result
+  return result;
+
 };
 
 // 3. Sum all numbers in an array containing nested arrays.
