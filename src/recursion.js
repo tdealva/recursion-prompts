@@ -94,13 +94,13 @@ var arraySum = function(array) {
 // Constrains - can't use Modulo
 // Edge Cases - none
 // Even numbers, if subtracted by 2, eventually will reach 0 <-- base case?
+// Odd numbers, if subtracted by 2, eventually will reach 1 <-- also base case?
 
 var isEven = function(n) {
   // base cases
   if (n === 0) {
     return true;
   }
-
   if (n === 1) {
     return false;
   }
@@ -116,7 +116,32 @@ var isEven = function(n) {
 // 5. Sum all integers below a given integer.
 // sumBelow(10); // 45
 // sumBelow(7); // 21
+// Input - Number
+// Output - Sum of all integers below input integer
+// Constraints - None
+// Edge Case - None
 var sumBelow = function(n) {
+  // define sum variable
+  var sum = 0
+  // Base Case -- 0? what about 1? 1
+  // Have it return sum, which will be set to 0 initially -- thus returning 0 if input is 0
+  if (n === 0) {
+    return 0;
+  }
+  // if (n === 1) {
+  //   return sum;
+  // }
+
+  // Recursive Case -- if n doesn't equal 0?
+  // Should work for BOTH negative and positive
+  // if n doesn't equal 0
+  if (n > 0) {
+    // invoke recursive fx and concat to sum
+    sum += (n - 1) + sumBelow(n - 1);
+  }
+  // // return sum
+  return sum;
+
 };
 
 // 6. Get the integers within a range (x, y).
