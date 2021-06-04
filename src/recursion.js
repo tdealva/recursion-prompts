@@ -128,18 +128,17 @@ var sumBelow = function(n) {
   if (n === 0) {
     return 0;
   }
-  // if (n === 1) {
-  //   return sum;
-  // }
 
   // Recursive Case -- if n doesn't equal 0?
   // Should work for BOTH negative and positive
-  // if n doesn't equal 0
+  // if n is greater than 0
   if (n > 0) {
-    // invoke recursive fx and concat to sum
+    // invoke recursive fx and add n-1 to it, and concat to sum
     sum += (n - 1) + sumBelow(n - 1);
-  }
-  // // return sum
+  // if n is less than 0
+  } if (n < 0)
+    sum += (n + 1) + sumBelow(n + 1);
+  // return sum
   return sum;
 
 };
@@ -147,6 +146,7 @@ var sumBelow = function(n) {
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
 var range = function(x, y) {
+
 };
 
 // 7. Compute the exponent of a number.
