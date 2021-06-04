@@ -89,7 +89,28 @@ var arraySum = function(array) {
 };
 
 // 4. Check if a number is even.
+// Input - number
+// Output - boolean (true if even, false if odd)
+// Constrains - can't use Modulo
+// Edge Cases - none
+// Even numbers, if subtracted by 2, eventually will reach 0 <-- base case?
+
 var isEven = function(n) {
+  // base cases
+  if (n === 0) {
+    return true;
+  }
+
+  if (n === 1) {
+    return false;
+  }
+  // Recursive call
+  // If n is greater than or equal to 2
+  // Use Math.abs to get Absolute Value (in case n is negative)
+  if (Math.abs(n) >= 2) {
+    // invoke isEven with an argument of n - 2
+    return isEven(Math.abs(n) - 2);
+  }
 };
 
 // 5. Sum all integers below a given integer.
