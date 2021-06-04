@@ -34,7 +34,7 @@ var factorial = function(n) {
 // sum([1,2,3,4,5,6]); // 21
 // Input - Array of Integers
 // Output - Sum of all Integers
-
+// Edge Case - Array is empty, return 0
 var sum = function(array) {
   // we don't know how many elements in input array? USE RECURSION
   // if array is empty, return 0
@@ -64,7 +64,28 @@ var sum = function(array) {
 
 // 3. Sum all numbers in an array containing nested arrays.
 // arraySum([1,[2,3],[[4]],5]); // 15
+// Input - Array containing Nested Arrays
+// Output - Sum of all numbers in array
+// Constraints - None
+// Edge Case - Empty array, return 0
 var arraySum = function(array) {
+  // define result variable
+  var result = 0;
+  // Base Case
+  // If input is NOT an array (if input is primitive aka number)
+  if (!Array.isArray(array)) {
+    // add number to result variable
+    result += array;
+  }
+  // Recursive Case
+  // If input IS an array, we need to iterate
+  if (Array.isArray(array)) {
+    array.forEach(function(item) {
+      result += arraySum(item);
+    });
+  }
+  // return result
+  return result;
 };
 
 // 4. Check if a number is even.
